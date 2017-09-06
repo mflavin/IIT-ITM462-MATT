@@ -1,5 +1,11 @@
-$(".comment-input button").on("click",  function () {
-      var $newP = $("<p>");
-      $newP.text("My New Element");
-      $(".comments").append($newP);
+$(".comment-input button").on("click", function(event) {
+  var $comment_text = $(".comment-input input");
+  
+    if($comment_text.val() !== "") {
+      var $new_comment = $("<p>");
+      $new_comment.text($comment_text.val());
+      $new_comment.fadeIn();
+      $(".comments").append($new_comment);
+      $comment_text.val("");
+    }
 });
