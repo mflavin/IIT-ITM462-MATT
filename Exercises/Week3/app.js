@@ -1,4 +1,4 @@
-$(".comment-input button").on("click", function(event) {
+$(".comment-input button").on("click", function() {
   var $comment_text = $(".comment-input input");
   
     if($comment_text.val() !== "") {
