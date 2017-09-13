@@ -94,6 +94,6 @@ var main = function () {
 
 $(document).ready(function() {
   $.getJSON("to-do.json", function(toDoObjects) {
-    main(toDoObjects)
+    main(toDoObjects);
   });
 });
