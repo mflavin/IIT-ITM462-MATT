@@ -1,4 +1,4 @@
-var main = function () {
+var main = function (toDoObjects) {
     var toDos = toDoObjects.map(function(toDo) {
       return toDo.description;
     });
@@ -63,8 +63,8 @@ var main = function () {
                     $content.append($li);
                   });
                   
-                  $("main.content").append($tagName);
-                  $("main.content").append($content);
+                  $("main .content").append($tagName);
+                  $("main .content").append($content);
                 });
             } else if ($element.parent().is(":nth-child(4)")) {
                 // input a new to-do
