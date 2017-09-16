@@ -1,7 +1,7 @@
 [
-{"suit" : "Diamonds", "rank" : "5"},
-{"suit" : "Hearts", "rank" : "7"},
-{"suit" : "Spades", "rank" : "3"},
-{"suit" : "Clubs", "rank" : "7"},
-{"suit" : "Spades", "rank" : "3"}
+{"suit" : "Diamonds", "rank" : "five"},
+{"suit" : "Hearts", "rank" : "seven"},
+{"suit" : "Spades", "rank" : "three"},
+{"suit" : "Clubs", "rank" : "seven"},
+{"suit" : "Spades", "rank" : "three"}
 ]
