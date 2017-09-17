@@ -18,14 +18,21 @@ $.getJSON("hand.json", function(cards) {
     }
     console.log(checking);
     
-    if(checking.length === 2) {
+    if(checking.length >= 2) {
       pairs++;
       temp = temp + pairs;
-      if(temp === 2) {
-        console.log("You have two pairs");
-      }else {
-        console.log("Hey, You have a Pair!");
+      if(temp <= 2) {
+        console.log("You have a Two Pair in your hand!");
       }
     }
+    
+    if(checking.length >= 3) {
+      pairs++;
+      temp = temp + pairs;
+      if(temp <= 3) {
+        console.log("You have a Three of a Kind!");
+      }
+    }
+    
   }
 });
