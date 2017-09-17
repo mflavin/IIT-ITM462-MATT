@@ -14,6 +14,7 @@ $.getJSON("hand.json", function(cards) {
   
   var temp = 0;
   for(var i = 0; i < PossibleRanks.length; i++) {
+    var lengthTrack = 0;
     var pairs = 0;
     var checkingRanks = [];
     var spot = PossibleRanks[i];
@@ -24,22 +25,29 @@ $.getJSON("hand.json", function(cards) {
     }
     console.log(checkingRanks);
     
+    //Pairs
     if(checkingRanks.length >= 2) {
       pairs++;
       temp += pairs;
       if(temp == 2) {
         console.log("A Two Pair was Found!");
+        lengthTrack = checkingRanks.length;
       }
     }
+    //Three of a Kind
     if(checkingRanks.length === 3) {
       console.log("A Three of a Kind Found!");
     }
+    //Four of a Kind
     if(checkingRanks.length === 4) {
       console.log("A Four of a Kind Found!");
     }
+    //Flush
+    if((checkingRanks.length === lengthTrack) && (checkingRanks.length === 3)) {
+      console.log("A Flush was Found!");
+    }
   }
   
-  //Flush
   //Full House
   for(var i = 0; i < PossibleSuits.length; i++) {
     var checkingSuits = [];
