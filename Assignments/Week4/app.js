@@ -4,17 +4,22 @@ $.getJSON("hand.json", function(cards) {
                         
   var PossibleSuits = ["Diamonds", "Hearts", "Spades", "Clubs"];
   
+  //Maps the hand into new variable
   var inHandRanks = cards.map(function (hand) {
     return hand.rank;
   });
   
+  //Maps the hand into new variable
   var inHandSuits = cards.map(function (hand) {
     return hand.suit;
   });
   
-  var temp = 0;
+  //Checks it there is a pair or a three of a kind
+  var lengthThree = 0;
+  var lengthPair = 0;
+  
+  //Compares the inHandRanks to PossibleRanks to see if there is a match
   for(var i = 0; i < PossibleRanks.length; i++) {
-    var lengthTrack = 0;
     var pairs = 0;
     var checkingRanks = [];
     var spot = PossibleRanks[i];
@@ -23,32 +28,34 @@ $.getJSON("hand.json", function(cards) {
        checkingRanks.push(holder);
        holder = inHandRanks.indexOf(spot, holder + 1);
     }
-    console.log(checkingRanks);
     
-    //Pairs
-    if(checkingRanks.length >= 2) {
+    //Checks for pairs
+    if(checkingRanks.length == 2) {
       pairs++;
-      temp += pairs;
-      if(temp == 2) {
+      lengthPair += pairs;
+      if(lengthPair == 2) {
         console.log("A Two Pair was Found!");
-        lengthTrack = checkingRanks.length;
       }
     }
-    //Three of a Kind
+    
+    //Checks for Three of a Kind
     if(checkingRanks.length === 3) {
       console.log("A Three of a Kind Found!");
+      lengthThree = checkingRanks.length;
     }
-    //Four of a Kind
+    //Checks for Four of a Kind
     if(checkingRanks.length === 4) {
       console.log("A Four of a Kind Found!");
     }
-    //Flush
-    if((checkingRanks.length === lengthTrack) && (checkingRanks.length === 3)) {
-      console.log("A Flush was Found!");
+    //Checks for a Full House
+    if((lengthPair === 1) && (lengthThree === 3)) {
+      console.log("A Full House was Found!");
+      lengthPair = 0;
+      lengthThree = 0;
     }
   }
   
-  //Full House
+  //Checks for a Flush
   for(var i = 0; i < PossibleSuits.length; i++) {
     var checkingSuits = [];
     var spot = PossibleSuits[i];
@@ -58,6 +65,7 @@ $.getJSON("hand.json", function(cards) {
       holder = inHandSuits.indexOf(spot, holder + 1);
     }
     
+    //Checks to see if all of the cards in hand are the same suit
     if(checkingSuits.length - 1 === PossibleSuits.length) {
       console.log("A Flush was Found!");
     }
