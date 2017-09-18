@@ -17,6 +17,7 @@ $.getJSON("hand.json", function(cards) {
   //Checks it there is a pair or a three of a kind
   var lengthThree = 0;
   var lengthPair = 0;
+  var something = 0;
   
   //Compares the inHandRanks to PossibleRanks to see if there is a match
   for(var i = 0; i < PossibleRanks.length; i++) {
@@ -33,8 +34,10 @@ $.getJSON("hand.json", function(cards) {
     if(checkingRanks.length == 2) {
       pairs++;
       lengthPair += pairs;
+      //Checks for a Two Pair
       if(lengthPair == 2) {
         console.log("A Two Pair was Found!");
+        something = 1;
       }
     }
     
@@ -42,16 +45,19 @@ $.getJSON("hand.json", function(cards) {
     if(checkingRanks.length === 3) {
       console.log("A Three of a Kind Found!");
       lengthThree = checkingRanks.length;
+      something = 1;
     }
     //Checks for Four of a Kind
     if(checkingRanks.length === 4) {
       console.log("A Four of a Kind Found!");
+      something = 1;
     }
     //Checks for a Full House
     if((lengthPair === 1) && (lengthThree === 3)) {
       console.log("A Full House was Found!");
       lengthPair = 0;
       lengthThree = 0;
+      something = 1;
     }
   }
   
@@ -64,10 +70,15 @@ $.getJSON("hand.json", function(cards) {
       checkingSuits.push(holder);
       holder = inHandSuits.indexOf(spot, holder + 1);
     }
-    
     //Checks to see if all of the cards in hand are the same suit
     if(checkingSuits.length - 1 === PossibleSuits.length) {
       console.log("A Flush was Found!");
+      something = 1;
     }
+  }
+  
+  //Checks for a Bust
+  if(something !== 1) {
+    console.log("Oh No! Looks like you got a Bust!");
   }
 });
