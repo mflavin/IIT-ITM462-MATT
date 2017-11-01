@@ -1,0 +1,15 @@
+{
+  "name": "assignment-6",
+  "version": "1.0.0",
+  "description": "Assignment 6 for week 9 of class.",
+  "main": "Assignment6.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mflavin/IIT-ITM462-MATT/tree/master/Assignments/Week9"
+  },
+  "author": "Matthew Flavin <mflavin@hawk.iit.edu>",
+  "license": "ISC"
+}
