@@ -1,8 +1,13 @@
 {
   "name": "assignment-6",
   "version": "1.0.0",
-  "description": "Assignment 6 for week 9 of class.",
+  "description": "Week 9's assignment",
   "main": "Assignment6.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "moment": "^2.19.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
