@@ -1,9 +1,9 @@
 {
-  "name": "bookstore",
+  "name": "Users",
   "version": "1.0.0",
-  "description": "A bookstore API",
+  "description": "Testing making/viewing Users and their reminders.",
   "main": "server.js",
-  "author": "Sam",
+  "author": "Matthew Flavin",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.1",
